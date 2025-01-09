@@ -1,0 +1,33 @@
+from pydantic import BaseModel
+
+class PredictionRequest(BaseModel):
+    Education: int
+    Income: float
+    Kidhome: int
+    Teenhome: int
+    Recency: int
+    Wines: int
+    Fruits: int
+    Meat: int
+    Fish: int
+    Sweets: int
+    Gold: int
+    NumDealsPurchases: int
+    NumWebPurchases: int
+    NumCatalogPurchases: int
+    NumStorePurchases: int
+    NumWebVisitsMonth: int
+    AcceptedCmp3: int
+    AcceptedCmp4: int
+    AcceptedCmp5: int
+    AcceptedCmp1: int
+    AcceptedCmp2: int
+    Complain: int
+    Response: int
+    Edad: int
+    En_Convivenvia: int
+    Hijos: int
+    Tamanho_familiar: int
+    Es_Padre: int
+    Clusters: int
+    Total_Promos: int
