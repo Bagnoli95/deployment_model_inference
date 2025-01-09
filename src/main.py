@@ -17,7 +17,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 
 # Ruta del modelo
-model_path = "../models/trained_model_2025-01-08.joblib"
+model_path = "../models/trained_model_2025-01-09.joblib"
 logger.info(f"Model path: {model_path}")
 
 # Intentar cargar el modelo
