@@ -2,7 +2,7 @@ import logging
 import numpy as np
 from sklearn.discriminant_analysis import StandardScaler
 
-from main import PredictionRequest
+from utils.schemas import PredictionRequest 
 
 # Configurar el logger
 logger = logging.getLogger(__name__)

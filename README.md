@@ -35,7 +35,6 @@ The project consists of the following components:
 
 Before running the project, ensure you have the following installed:
 - **Docker**: [Install Docker](https://docs.docker.com/get-docker/)
-- **Poetry**: [Install Poetry](https://python-poetry.org/docs/#installation)
 
 ---
 
@@ -47,9 +46,9 @@ Before running the project, ensure you have the following installed:
    cd deployment_model_inference
    ```
 
-2. Install dependencies using Poetry:
+2. Install dependencies using pip:
    ```bash
-   poetry install
+   pip install requirements.txt
    ```
 
 ---
@@ -57,28 +56,45 @@ Before running the project, ensure you have the following installed:
 ## Usage
 
 ### Running Locally
-1. Activate the Poetry virtual environment:
+1. Run the inference script:
    ```bash
-   poetry shell
-   ```
-
-2. Run the inference script:
-   ```bash
-   poetry run python src/inference.py
+   uvicorn main:app --port 4579 --reload
    ```
 
 ### Input Data
 The script expects input data in the following format:
 ```python
 input_data = {
-    "Pregnancies": 6,
-    "Glucose": 148,
-    "BloodPressure": 72,
-    "SkinThickness": 0,
-    "Insulin": 0,
-    "BMI": 33.6,
-    "DiabetesPedigreeFunction": 0.627,
-    "Age": 50
+    "Education": 1,
+    "Income": 49854.0,
+    "Kidhome": 1,
+    "Teenhome": 0,
+    "Recency": 63,
+    "Wines": 123,
+    "Fruits": 17,
+    "Meat": 171,
+    "Fish": 39,
+    "Sweets": 0,
+    "Gold": 0,
+    "NumDealsPurchases": 0,
+    "NumWebPurchases": 0,
+    "NumCatalogPurchases": 0,
+    "NumStorePurchases": 0,
+    "NumWebVisitsMonth": 0,
+    "AcceptedCmp3": 0,
+    "AcceptedCmp4": 0,
+    "AcceptedCmp5": 0,
+    "AcceptedCmp1": 0,
+    "AcceptedCmp2": 0,
+    "Complain": 0,
+    "Response": 0,
+    "Edad": 42,
+    "En_Convivenvia": 1,
+    "Hijos": 1,
+    "Tamanho_familiar": 3,
+    "Es_Padre": 1,
+    "Clusters": 3,
+    "Total_Promos": 0
 }
 ```
 
@@ -89,13 +105,14 @@ input_data = {
 ### Build the Docker Image
 To build the Docker image, run:
 ```bash
-docker build -t deployment_model_inference .
+docker build -t inference-service-6 .
 ```
 
 ### Run the Docker Container
 To run the container and execute the inference script:
 ```bash
-docker run -it deployment_model_inference:latest
+docker run -d -p 4579:8080 --name inference-service-container inference-service-6
+
 ```
 
 ### Mount Local Files (Optional)

@@ -3,9 +3,10 @@ import os
 import logging
 
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import numpy as np
 from utils.schemas import PredictionRequest 
+
+from utils.ejecutar_prediccion import predecir
+from utils.model_loader import load_model
 
 # Configurar el log
 logger = logging.getLogger(__name__)
@@ -13,8 +14,7 @@ logger = logging.getLogger(__name__)
 # Agregar la raíz del proyecto al PYTHONPATH
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from utils.ejecutar_prediccion import predecir
-from utils.model_loader import load_model
+
 
 # Ruta del modelo
 model_path = "../models/trained_model_2025-01-08.joblib"
